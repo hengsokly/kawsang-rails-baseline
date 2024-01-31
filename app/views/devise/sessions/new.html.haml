@@ -1,0 +1,51 @@
+.form-wrapper#login_form
+  %h2.font-weight-normal.text-center.my-4
+    ចូលប្រើ / Sign in
+
+  .text-center
+    = button_to user_google_oauth2_omniauth_authorize_path, method: :post, 'data-turbo': false, class: 'btn btn-outline-primary w-75' do
+      = image_tag 'google.png', style: 'width: 18px;'
+      = t('devise.sign_in_with', omniauth: 'Gmail')
+
+    - if ENV["FACEBOOK_APP_ID"].present?
+      = button_to user_facebook_omniauth_authorize_path, method: :post, 'data-turbo': false, class: 'btn btn-outline-primary w-75 mt-2' do
+        %i.fa-brands.fa-facebook{style: 'font-size: 18px;'}
+        = t('devise.sign_in_with', omniauth: 'Facebook')
+
+    - if ENV["TELEGRAM_BOT_NAME"].present?
+      .mt-2
+        %script{async: "", "data-auth-url": ENV["TELEGRAM_CALLBACK_URL"], "data-request-access": "write", "data-size": "large", "data-radius": "4", "data-telegram-login": ENV["TELEGRAM_BOT_NAME"], src: "https://telegram.org/js/telegram-widget.js?22"}
+        / %script{async: "", "data-auth-url": "https://92f2-136-228-158-171.ngrok-free.app/auth/telegram/callback", "data-size": "large", "data-radius": "4", "data-telegram-login": ENV["TELEGRAM_BOT_NAME"], src: "https://telegram.org/js/telegram-widget.js?22"}
+
+  .d-flex.flex-row.align-items-center
+    .line.flex-grow-1
+    .or-label OR
+    .line.flex-grow-1
+
+  %div{'data-controller': 'sessions'}
+    = simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { method: :post, 'data-turbo': false, id: 'session-form' }) do |f|
+      .mb-3
+        = f.input :email, required: true, autofocus: true, input_html: { autocomplete: "email", class: 'input-email' }
+
+      .mb-3.form-actions
+        = f.button :submit, t('devise.sessions.send_otp_for_sign_in'), class: 'btn btn-primary w-100 mb-2 btn-submit'
+
+  .text-end.mb-3
+    .form-group
+      = render "devise/shared/links"
+
+    .form-group
+      %small.fs-xs
+        = t("shared.version") + ': '
+        = ENV['APP_VERSION'] || 'dev'
+
+  %div
+    = link_to t('shared.privacy'), '/privacy-policy', class: 'btn btn-link'
+    = link_to t('shared.terms_and_conditions'), '/terms-and-conditions', class: 'btn btn-link'
+    - if ENV['SUPPORT_EMAIL'].present?
+      = link_to "Support", "mailto: #{ENV['SUPPORT_EMAIL']}", class: 'btn btn-link'
+    = link_to t('shared.about'), about_path, class: 'btn btn-link'
+
+  .text-center.mb-3
+    %small.text-muted
+      = t('shared.copyright', name: ENV['APP_NAME'])

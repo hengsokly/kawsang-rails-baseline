@@ -1,0 +1,39 @@
+en:
+  user:
+    users: Users
+    user: User
+    status: Status
+    last_sign_in_at: Last sign in at
+    role: Role
+    email: Email
+    new_user: New user
+    edit_user: Edit user
+    copy_confirm_link: Copy confirm link
+    copied: Copied!
+    all: All
+    archived: Archived
+    archive_successfully: "User %{email} is archived successfully!"
+    restore_successfully: "User %{email} is restored successfully!"
+    resend_confirmation: Resend confirmation
+    resend_confirmation_successfully: Resend the confirmation successfully!
+    locale_km: ខ្មែរ
+    locale_en: English
+    last_sign_in_via: Last sign in via %{type}
+    tg_username: Telegram username
+    to_get_tg_username: "Follow these steps to get Telegram username:"
+    tg_username_step1: Click on menu button
+    tg_username_step2: Click on the profile
+    tg_username_step3: Scroll down till seeing username
+    tg_username_step4: "Fill in the Telegram username into the system (Note: no need to add symbol \"@\")"
+
+  activerecord:
+    attributes:
+      user:
+        otp_token: OTP code
+    errors:
+      models:
+        user:
+          attributes:
+            otp_token:
+              blank: cannot be blank
+              invalid: is invalid

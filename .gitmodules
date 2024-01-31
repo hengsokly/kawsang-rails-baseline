@@ -1,0 +1,3 @@
+[submodule "engines/core"]
+	path = engines/core
+	url = https://github.com/hengsokly/kawsang_core
