@@ -25,6 +25,9 @@ km:
     tg_username_step2: ចុចលើប្រវត្តិរូប
     tg_username_step3: អូសចុះក្រោមរហូតដល់ឃើញឈ្មោះអ្នកប្រើប្រាស់
     tg_username_step4: "បំពេញឈ្មោះអ្នកប្រើប្រាស់ Telegram ទៅក្នុងប្រព័ន្ធ (ចំណាំ៖ មិនចាំបាច់បន្ថែមនិមិត្តសញ្ញា \"@\" ទេ)"
+    primary_admin: អ្នកគ្រប់គ្រងប្រព័ន្ធ
+    admin: អ្នកគ្រប់គ្រង
+    staff: បុគ្គលិក
 
   activerecord:
     attributes:

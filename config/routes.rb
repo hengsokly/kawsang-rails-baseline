@@ -1,3 +1,5 @@
+require "sidekiq/web"
+
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -29,12 +31,12 @@ Rails.application.routes.draw do
   get "/privacy-policy", to: "privacy_policies#show"
   get "/terms-and-conditions", to: "terms_and_conditions#show"
 
-  # # Sidekiq
-  # if Rails.env.production?
-  #   authenticate :user, ->(user) { user.primary_admin? } do
-  #     mount Sidekiq::Web => "/sidekiq"
-  #   end
-  # else
-  #   mount Sidekiq::Web => "/sidekiq"
-  # end
+  # Sidekiq
+  if Rails.env.production?
+    authenticate :user, ->(user) { user.primary_admin? } do
+      mount Sidekiq::Web => "/sidekiq"
+    end
+  else
+    mount Sidekiq::Web => "/sidekiq"
+  end
 end

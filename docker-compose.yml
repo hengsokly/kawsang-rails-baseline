@@ -44,4 +44,4 @@ services:
       - 4040:4040
     environment:
       NGROK_PORT: 'web:3000'
-      NGROK_AUTH: 27KFUUyj2GRy3jDilgWXYWL9KSn_2m7FsfxardTVAeGmRiXL6
+      NGROK_AUTH: update_it

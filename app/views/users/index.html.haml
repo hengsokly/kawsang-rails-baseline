@@ -44,7 +44,7 @@
                   %span{'data-bs-toggle': 'tooltip', title: t('user.last_sign_in_via', type: user.sign_in_type)}
                     = image_tag "#{user.sign_in_type}", width: 16
 
-                  = timeago(user.last_sign_in_at).html_safe
+                  = timeago(user.last_sign_in_at, 'datetime').html_safe
               %td
                 .d-flex.justify-content-end{'data-controller': "users"}
                   = render 'action_buttons', user: user

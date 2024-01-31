@@ -50,7 +50,6 @@ gem "haml-rails", "~> 2.0.1"
 gem "simple_form", "~> 5.1.0"
 gem "bootstrap", "~> 5.2.0"
 gem "sass-rails", "~> 6.0.0"
-# gem "pundit", "~> 2.2.0"
 gem "pagy", "~> 5.10.1"
 
 # gem "sentry-ruby"

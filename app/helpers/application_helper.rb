@@ -10,13 +10,26 @@ module ApplicationHelper
     link_to title, { sort: column, direction: }, { class: css_class }
   end
 
-  def timeago(date)
+  def timeago(date, type = "date")
     return "" unless date.present?
 
-    str = "<span class='timeago' data-date='#{I18n.l(date, format: "%Y-%m-%d")}'>"
+    dis_date = type == "date" ? display_date(date) : display_datetime(date)
+    str = "<span class='timeago' data-date='#{dis_date}'>"
     str += time_ago_in_words(date)
     str += "</span>"
     str
+  end
+
+  def display_date(date)
+    return "" unless date.present?
+
+    I18n.l(date, format: :yyyy_mm_dd)
+  end
+
+  def display_datetime(date)
+    return "" unless date.present?
+
+    I18n.l(date, format: :yyyy_mm_dd_time)
   end
 
   def css_active_class(controller_name)

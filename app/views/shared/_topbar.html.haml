@@ -1,6 +1,6 @@
 %nav.sb-topnav.navbar.navbar-expand.navbar-dark.bg-dark{'data-controller': "sidebar"}
   / Navbar Brand
-  %a.navbar-brand.ps-3{ href: '#' } Scorecard Facility
+  %a.navbar-brand.ps-3{ href: '#' } Rails Baseline App
   / Sidebar Toggle
   %button#sidebarToggle.btn.btn-link.btn-sm.order-1.order-lg-0.me-4.me-lg-0{:href => "#!", data: { action: "click->sidebar#toggle" } }
     %i.fas.fa-bars
@@ -8,16 +8,3 @@
   .d-md-inline-block.form-inline.ms-auto.me-0.me-md-3.my-2.my-md-0
 
   = render "shared/switch_language"
-
-  / Navbar
-  %ul.navbar-nav.ms-auto.ms-md-0.me-3.me-lg-4
-    %li.nav-item.dropdown
-      %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", :href => "#", :role => "button"}
-        %i.fas.fa-user.fa-fw
-      %ul.dropdown-menu.dropdown-menu-end{"aria-labelledby" => "navbarDropdown"}
-        %li
-          .dropdown-item= current_user.email
-        %li
-          %hr.dropdown-divider
-        %li
-          = button_to("Log Out", destroy_user_session_path, method: :delete, 'data-turbo': false, class: 'dropdown-item')

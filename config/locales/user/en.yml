@@ -25,6 +25,9 @@ en:
     tg_username_step2: Click on the profile
     tg_username_step3: Scroll down till seeing username
     tg_username_step4: "Fill in the Telegram username into the system (Note: no need to add symbol \"@\")"
+    primary_admin: Primary admin
+    admin: Admin
+    staff: Staff
 
   activerecord:
     attributes:
