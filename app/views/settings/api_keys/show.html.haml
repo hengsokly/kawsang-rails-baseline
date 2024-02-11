@@ -1,0 +1,12 @@
+.container-fluid.px-4.mb-4
+  = render 'shared/header_title', title: "#{current_user.display_name}: Api Key"
+
+  .w-50.view-center.user-form
+    = simple_form_for current_user, url: settings_api_key_path, action: 'PUT' do |f|
+      .mb-3= f.input :email, label: t('user.email'), input_html: { readonly: current_user.persisted? }
+
+      .mb-3= f.input :api_key, label: t('user.api_key')
+
+      .actions
+        = link_to t('shared.cancel'), users_path, class: 'btn btn-secondary me-1'
+        = f.submit t('shared.save'), class: 'btn btn-primary'

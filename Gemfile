@@ -59,6 +59,8 @@ gem "pagy", "~> 5.10.1"
 # gem "rack-attack", "~> 6.7.0"
 # gem "rack-test", "~> 2.0.2"
 
+eval(File.read(File.dirname(__FILE__) + "/engines/core/engine_development_dependencies.rb"))
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mswin mswin64 mingw x64_mingw ]

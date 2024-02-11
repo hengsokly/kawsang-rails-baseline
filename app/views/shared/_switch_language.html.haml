@@ -41,6 +41,13 @@
       .dropdown-divider
 
       %li
+        %a.dropdown-item{ href: settings_api_key_path }
+          %i.fa-solid.fa-gear.fa-sm.fa-fw.mr-2.text-muted
+          = t('shared.setting')
+          
+      .dropdown-divider
+
+      %li
         %a.dropdown-item{ href: destroy_user_session_path, data: { turbo_method: :delete } }
           %i.fas.fa-sign-out-alt.fa-sm.fa-fw.mr-2.text-muted
           = t('shared.logout')

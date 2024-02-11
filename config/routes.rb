@@ -35,6 +35,11 @@ Rails.application.routes.draw do
   get "/privacy-policy", to: "privacy_policies#show"
   get "/terms-and-conditions", to: "terms_and_conditions#show"
 
+
+  namespace :settings do
+    resource :api_key
+  end
+
   # Sidekiq
   if Rails.env.production?
     authenticate :user, ->(user) { user.primary_admin? } do
