@@ -33,7 +33,7 @@ module ApplicationHelper
   end
 
   def css_active_class(controller_name)
-    return "active" if request.path.split("/")[1] == controller_name
+    "active" if request.path.split("/")[1] == controller_name
   end
 
   def system_locales

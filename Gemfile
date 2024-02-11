@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 ruby "3.1.2"
 
-gem "kawsang_core", path: 'engines/core'
+gem "kawsang_core", path: "engines/core"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.3"
 
@@ -58,6 +58,8 @@ gem "pagy", "~> 5.10.1"
 # # Protect the app from bad clients
 # gem "rack-attack", "~> 6.7.0"
 # gem "rack-test", "~> 2.0.2"
+
+eval(File.read(File.dirname(__FILE__) + "/engines/core/engine_development_dependencies.rb"))
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

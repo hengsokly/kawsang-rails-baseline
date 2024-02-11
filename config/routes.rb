@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   # get "up" => "rails/health#show", as: :rails_health_check
 
-  devise_for :users, class_name: 'Kawsang::User', path: "/",controllers: { omniauth_callbacks: "users/omniauth_callbacks", sessions: "sessions" }
+  devise_for :users, class_name: "Kawsang::User", path: "/", controllers: { omniauth_callbacks: "users/omniauth_callbacks", sessions: "sessions" }
 
   devise_scope :user do
     match "/verify_otp" => "sessions#verify_otp", via: :post
@@ -34,6 +34,11 @@ Rails.application.routes.draw do
   resource :about, only: [:show]
   get "/privacy-policy", to: "privacy_policies#show"
   get "/terms-and-conditions", to: "terms_and_conditions#show"
+
+
+  namespace :settings do
+    resource :api_key
+  end
 
   # Sidekiq
   if Rails.env.production?
